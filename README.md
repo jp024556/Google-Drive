@@ -2,7 +2,7 @@
 
 
 
-### Admin Panel credentilas:
+### Admin Panel credentials:
 ```bash
 > username: admin
 
