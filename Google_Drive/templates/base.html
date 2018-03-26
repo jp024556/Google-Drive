@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<!-- Custom CSS -->
+	<link href="/static/css/custom.css" rel="stylesheet" />
+	
+	<link href="/static/images/favicon.png" rel="icon" />
+	<title>
+    {% block title %}
+    {% endblock title %}
+	</title>
+  </head>
+<body>
+	<!-- Container Start -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Navigation Start -->
+				<div class="navigation">
+					<ul>
+						<li id="logo"><a href="/">Google Drive</a></li>
+						<li><a href="/">Home</a></li>
+						<li><a href="/upload/">Upload</a></li>
+						<li><a href="/about/">AboutUs</a></li>
+                        {% if request.session.username is None %}
+							<li class="rt_btn"><a href="/register/"><i class="glyphicon glyphicon-registration-mark"></i> Register</a></li>
+						    <li class="rt_btn"><a href="/login/"><i class="glyphicon glyphicon-log-in"></i> LogIn</a></li>                      
+                        {% else %}                        
+							<li class="rt_btn"><a href="/logout/">LogOut <i class="glyphicon glyphicon-log-out"></i></a></li>
+							<li class="rt_btn"><a href="#"><i class="glyphicon glyphicon-user"></i> {{ request.session.username }}</a></li>
+							<li class="rt_btn"><a href="/myUploads/"><i class="glyphicon glyphicon-cloud-upload"></i> MyUploads</a></li>
+                        {% endif %}
+					</ul>
+				</div>
+				<!-- Navigation End -->
+				</div>
+            {% block content %}
+            {% endblock content %}
+
+		</div>
+		<div class="row footer-wrap">
+			<div class="col-md-12 panel_wrapper">
+					<!-- Navigation Start -->
+					<div class="navigation footer">
+						<p class="text-center">&copy; Google Drive - 2018</p>
+					</div>
+			</div>
+		</div>
+	</div>
+	<!-- Container End -->
+</body>
+</html>

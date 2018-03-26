@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}
+Upload Files | Google Drive
+{% endblock title %}
+{% block content %}
+    <div class="col-md-8 col-md-offset-2 panel_wrapper">
+					<div class="panel-primary">
+                        <div class="panel-heading">
+                            <h4><i class="glyphicon glyphicon-cloud-upload"></i> Upload Form</h4>
+                            <span style="color: yellow;">{{ msg }}</span>
+                        </div>
+                        <div class="panel-body bg-info">
+						<form class="form" action="" method="post" enctype="multipart/form-data" style="border: 1px dashed teal;padding: 20px;">
+                            {% csrf_token %}
+                            <label for="file_name">Choose a file to upload:</label>
+                            <input type="file" name="file_name" style="font-family:Tahoma;cursor:pointer;color:white;border-radius:5px;margin-top:10px;background: teal;padding:10px;box-shadow: 1px 3px #40E0D0;" id="file_name" />
+                            <input type="hidden" name="uname" value="{{ request.session.username }}" />
+                            <br />
+                            <input type="submit" name="submit" class="btn btn-primary form-control" style="box-shadow: 0px 3px mediumblue;" value="Upload" />
+                        </form>
+                            <div style="margin-top: 30px;border:1px dashed red;padding:5px;font-family: 'Trebuchet MS';">
+                                <h4 class="text-danger">Things to keep in mind before uploading files:</h4>
+                                <p class="text-info">=> All file extensions are allowed but <code>max-upload limit is only 2.5 MB.</code></p>
+                                <p class="text-info">=> It is a humble request that after choosing file, click only once on upload button and wait for the file to be uploaded.</p>
+                                <p class="text-info">=> That's it, no more instructions. Enjoy uploading :)</p>
+                            </div>
+                        </div>
+					</div>
+				</div>
+{% endblock content %}

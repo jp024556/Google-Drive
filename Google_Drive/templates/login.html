@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+Login | Google Drive
+{% endblock title %}
+{% block content %}
+    <div class="col-md-8 col-md-offset-2 panel_wrapper">
+					<div class="panel-primary">
+                        <div class="panel-heading"><h4><i class="glyphicon glyphicon-log-in"></i> Login Form</h4>{{ msg }}</div>
+                        <div class="panel-body bg-info">
+						<form class="form" action="" method="post">
+                            {% csrf_token %}
+                            <label for="username">Enter your username:</label>
+                            <input type="text" name="username" class="form-control" id="username" placeholder="Username" />
+                            <label for="pwd">Enter your password:</label>
+                            <input type="password" name="pwd" class="form-control" id="pwd" placeholder="Password" /><br />
+                            <input type="submit" name="submit" class="btn btn-primary form-control" style="box-shadow: 0px 3px mediumblue;" value="Login" />
+                        </form>
+                        </div>
+					</div>
+				</div>
+{% endblock content %}
