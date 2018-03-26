@@ -7,9 +7,9 @@
 ### Admin Panel credentilas:
 ----------------------------
 
-username: admin
+> username: admin
 
-password: pass@12345
+> password: pass@12345
 
 
 
